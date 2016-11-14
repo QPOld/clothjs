@@ -5,7 +5,7 @@
 **clothjs** (or **cloth.js**) is a JavaScript library for generating HTML elements. Clothjs allows you to code html directly into your javascript.
 ## Resources
 
-* [API Reference](https://github.com/qparkinson/clothjs/)
+* [API Reference](https://github.com/QParkinson/clothjs/blob/master/API.md)
 
 ## Installing
 
