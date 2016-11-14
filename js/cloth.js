@@ -7,7 +7,7 @@
 !function () {
 	/** cloth object containing the current version number.*/
 	var cloth = {
-		version : "1.0.0"
+		version : "0.0.1"
 	},
 	cloth_document = this.document;
 	if (typeof define === "function" && define.amd) {
