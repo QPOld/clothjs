@@ -9,7 +9,7 @@
 
 ## Installing
 
-Download the [latest release](https://github.com/QParkinson/clothjs/releases/lateset) then load clothjs with a script tag. For example:
+Download the [latest release](https://github.com/QParkinson/clothjs/releases/latest) then load clothjs with a script tag. For example:
 
 ```html
 <script src="../js/cloth.js"></script>
