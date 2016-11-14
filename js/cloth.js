@@ -1,8 +1,7 @@
-//KEEP WORKIN ON THIS!!!!!
 /**
  *	@description Cloth is a html element generator. It allows html to be
  *		dynamically generated within a javascript file..
- *	@module cloth
+ *	@class cloth
  *	@author Michael Parkinson <SubFiApp@gmail.com>
  */
 !function () {

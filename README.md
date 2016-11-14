@@ -3,6 +3,9 @@
 <a href="https://subfi.info">SubFi.info</a>
 
 **clothjs** (or **cloth.js**) is a JavaScript library for generating HTML elements. Clothjs allows you to code html directly into your javascript.
+## Resources
+
+* [API Reference](https://github.com/qparkinson/clothjs/)
 
 ## Installing
 
