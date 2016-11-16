@@ -1,6 +1,7 @@
 /**
- *	@description Cloth is a html element generator. It allows html to be
- *		dynamically generated within a javascript file..
+ *	@description Cloth is a simple HTML element library. It allows HTML to be
+ *		dynamically generated within a javascript file. It was developed as a
+ *		pure HTML/css alternative to the Phaser.io plugin Phaser-Input.
  *	@class cloth
  *	@author Michael Parkinson <SubFiApp@gmail.com>
  */
@@ -20,15 +21,15 @@
 	}
 
 	/**
-	 *	@description Sets CSS attributes for a html element. Loops through all the
+	 *	@description Sets CSS attributes for a HTML element. Loops through all the
 	 *		keys in the attrs object and uses the method element.setAttribute.
 	 *		Invalid keys and attributes are ignored.
 	 *	@memberof cloth
 	 *	@function edit
-	 *	@param {element} element The html element that is being created.
+	 *	@param {element} element The HTML element that is being created.
 	 *	@param {object} attrs The attribute object. This contains any
 	 *		inline parameters. I suggest containing the id parameter.
-	 *	@tutorial setAttributes(elementID,{'id':'elememtID','type':'elementType'});
+	 *	@tutorial setAttributes(elementID,{'id':'elementID','type':'elementType'});
 	 */
 	function setAttributes(element, attrs) {
 		if (attrs !== null && typeof attrs === 'object') {
@@ -40,15 +41,15 @@
 
 	/**
 	 *	@description The main function for cloth.js. cloth.append takes in the parentID
-	 *		html element then appends an element of type ElementID with attributes
+	 *		HTML element then appends an element of type ElementID with attributes
 	 *		attrs. If the parent does not exist then the elementID is attached to
 	 *		the body. The function must be called after the document has loaded.
 	 *	@memberof cloth
 	 *	@function append
-	 *	@param {string} parentID The name of the parent html element.
-	 *	@param {string} elementType The html element type that is appened to parent html element.
+	 *	@param {string} parentID The name of the parent HTML element.
+	 *	@param {string} elementType The HTML element type that is appened to parent HTML element.
 	 *	@param {object} attrs The attribute object {@see cloth#setAttributes}.
-	 *	@param {boolean} prepend Optional flag for prepending the html element in front of any other element.
+	 *	@param {boolean} prepend Optional flag for prepending the HTML element in front of any other element.
 	 *	@tutorial cloth.append('exampleDiv', 'input', attrs={ 'id' : 'exampleID', 'type' : 'submit', 'value' : 'Login'});
 	 */
 	cloth.append = function (parentID, elementType, attrs, prepend) {
@@ -83,11 +84,11 @@
 	/**
 	 *	@description An element created with cloth.append {@see cloth#append} with an id
 	 *		given in the attrs object can be removed with this function. If the element
-	 *		does not exist then nothing happens. Any html element created with
+	 *		does not exist then nothing happens. Any HTML element created with
 	 *		cloth.append should have an input have an 'id' in the attrs object.
 	 *	@memberof cloth
 	 *	@function remove
-	 *	@param {string} elementID The name of the html element that will be removed.
+	 *	@param {string} elementID The name of the HTML element that will be removed.
 	 *	@tutorial cloth.remove('exampleID');
 	 */
 	cloth.remove = function (elementID) {
@@ -104,9 +105,9 @@
 	 *		set to true.
 	 *	@memberof cloth
 	 *	@function retrieve
-	 *	@param {string} elementID The name of the html element.
+	 *	@param {string} elementID The name of the HTML element.
 	 *	@param {boolean} innerHTML Optional flag
-	 *	@returns {number|undefined} Returns the value or innerHTML of the html element.
+	 *	@returns {number|undefined} Returns the value or innerHTML of the HTML element.
 	 *	@tutorial cloth.retrieve('exampleID',false);
 	 */
 	cloth.retrieve = function (elementID, innerHTML) {
@@ -123,14 +124,14 @@
 	};
 
 	/**
-	 *	@description Changes the value of the html element with an id of elementID. If
+	 *	@description Changes the value of the HTML element with an id of elementID. If
 	 *		the element only takes innerHTML then the innerHTML flag can be true. The
 	 *		elementValue is still used when the innerHTML flag is set true. The flag
 	 *		is set to false by default.
 	 *	@memberof cloth
 	 *	@function value
-	 *	@param {string} elementID The name of the html element.
-	 *	@param {string} elementValue The new value for the html element.
+	 *	@param {string} elementID The name of the HTML element.
+	 *	@param {string} elementValue The new value for the HTML element.
 	 *	@param {boolean} innerHTML Optional flag for elements that have innerHTML.
 	 *	@tutorial cloth.value('exampleID',42,false);
 	 */
@@ -149,11 +150,11 @@
 	};
 
 	/**
-	 *	@description Changes the focus to a html element with an id of elementID.
+	 *	@description Changes the focus to a HTML element with an id of elementID.
 	 *	@memberof cloth
 	 *	@function focus
-	 *	@param {string} elementID The name of the html element.
-	 *	@param {boolean} defocus Optional flag to defocus from an html element.
+	 *	@param {string} elementID The name of the HTML element.
+	 *	@param {boolean} defocus Optional flag to defocus from an HTML element.
 	 *	@tutorial cloth.focus('exampleID');
 	 */
 	cloth.focus = function (elementID, defocus) {
@@ -167,6 +168,29 @@
 			} else {
 				element.blur();
 			}
+		}
+	};
+	
+	/**
+	 *	@description Attempts to scale a HTML element. If there is any inline css
+	 *		then it will be perserved during a scaling event.
+	 *	@memberof cloth
+	 *	@function scale
+	 *	@param {string} elementID The name of the HTML element.
+	 *	@param {number} scaleValue A number representing how much to zoom in or out.
+	 *	@tutorial cloth.scale('exampleDiv',1.25);
+	 */
+	cloth.scale = function (elementID, scaleValue) {
+		var element = cloth_document.getElementById(elementID);
+		var oldCSS = element.style;
+		var newCSS = 'transform:scale('+scaleValue+');';
+		for (var i=0;i<oldCSS.length;i++) {
+			if(oldCSS[i] !== 'transform'){
+				newCSS += oldCSS[i]+':'+oldCSS[oldCSS[i]]+';';
+			}
+		}
+		if (element !== undefined && element !== null) {
+			setAttributes(element,attrs={'style':newCSS});
 		}
 	};
 	//End of clothjs.
