@@ -24,16 +24,15 @@
 	 *		keys in the attrs object and uses the method element.setAttribute.
 	 *		Invalid keys and attributes are ignored.
 	 *	@memberof cloth
-	 *	@function setAttributes
+	 *	@function edit
 	 *	@param {element} element The html element that is being created.
 	 *	@param {object} attrs The attribute object. This contains any 
 	 *		inline parameters. I suggest containing the id parameter.
-	 *	@tutorial setAttributes(elementID,{'id':'elememtID','type':'elementType'});
+	 *	@tutorial cloth.edit(elementID,{'id':'elememtID','type':'elementType'});
 	 */
-	function setAttributes(element, attrs) {
+	cloth.edit = function(element, attrs){
 		for (var key in attrs) {
 			element.setAttribute(key, attrs[key]);
-			
 		}
 	};
 	
@@ -46,17 +45,16 @@
 	 *	@function append
 	 *	@param {string} parentID The name of the parent html element.
 	 *	@param {string} elementType The html element type that is appened to parent html element.
-	 *	@param {object} attrs The attribute object {@see cloth#setAttributes}.
+	 *	@param {object} attrs The attribute object {@see cloth#cloth.edit}.
 	 *	@param {boolean} prepend Optional flag for prepending the html element in front of any other element.
 	 *	@tutorial cloth.append('exampleDiv', 'input', attrs={ 'id' : 'exampleID', 'type' : 'submit', 'value' : 'Login'});
-	 *	@throws {TypeError} If the document does not exist then the body does not exist thus nothing will be appended.
 	 */
 	cloth.append = function(parentID, elementType, attrs, prepend) {
 		if (typeof prepend === 'undefined') { prepend = false; } // Prepend flag set to false if not defined.
 		parentElement = cloth_document.getElementById(parentID);
 		if (parentElement === undefined || parentElement === null) { // If the parentElement does not exist.
 			parentElement = cloth_document.createElement(elementType);
-			setAttributes(parentElement, attrs);
+			cloth.edit(parentElement, attrs);
 			try { // Catches a TypeError thrown because the document does not exist.
 				if(!prepend){
 					cloth_document.body.appendChild(parentElement);
@@ -69,7 +67,7 @@
 			}
 		} else { // If the parentElement does exist.
 			childElement = cloth_document.createElement(elementType);
-			setAttributes(childElement, attrs);
+			cloth.edit(childElement, attrs);
 			if(!prepend) {
 				parentElement.appendChild(childElement);
 			} else {
@@ -97,34 +95,41 @@
 	
 	/**
 	 *	@description Retrieve a value from an element with an id. If the value does
-	 *		not exist then null is returned instead of the value.
+	 *		not exist then undefined is returned instead of the value.
 	 *	@memberof cloth
 	 *	@function retrieve
 	 *	@param {string} elementID The name of the html element.
-	 *	@returns {number|undefined} Returns the value or undefined.
+	 *	@returns {Array} Returns the value and innerHTML.
 	 *	@tutorial cloth.retrieve('exampleID');
 	 */
 	cloth.retrieve = function(elementID) {
 		var element = cloth_document.getElementById(elementID);
 		if (element !== undefined || element !== null) {
-			return element.value;
+			return [element.value,element.innerHTML];
 		} else {
-			return undefined;
+			return [undefined,undefined];
 		}
 	};
 	
 	/**
-	 *	@description Changes the value of the html element with an id of elementID
+	 *	@description Changes the value of the html element with an id of elementID. If
+	 *		the element only takes innerHTML then the innerHTML flag can be true.
 	 *	@memberof cloth
 	 *	@function value
 	 *	@param {string} elementID The name of the html element.
 	 *	@param {string} elementValue The new value for the html element.
-	 *	@tutorial cloth.value('exampleID',42)
+	 *	@param {boolean} innerHTML Optional flag for elements that have innerHTML.
+	 *	@tutorial cloth.value('exampleID',42);
 	 */
-	cloth.value = function(elementID, elementValue) {
+	cloth.value = function(elementID, elementValue, innerHTML) {
+		if (typeof innerHTML === 'undefined') { innerHTML = false; } // Flag set to false if not defined.
 		var element = cloth_document.getElementById(elementID);
 		if (element !== undefined || element !== null) {
-			element.value = elementValue;
+			if(!innerHTML){
+				element.value = elementValue;
+			} else {
+				element.innerHTML = elementValue;
+			}
 		}
 	};
 	
@@ -133,12 +138,19 @@
 	 *	@memberof cloth
 	 *	@function focus
 	 *	@param {string} elementID The name of the html element.
+	 *	@param {boolean} defocus Optional flag to defocus from an html element.
 	 *	@tutorial cloth.focus('exampleID');
 	 */
-	cloth.focus = function(elementID){
+	cloth.focus = function(elementID, defocus){
+		if (typeof defocus === 'undefined') { defocus = false; } // Flag set to false if not defined.
 		var element = cloth_document.getElementById(elementID);
 		if (element !== undefined || element !== null) {
-			element.focus()
+			if(!defocus) {
+				element.focus();
+			} else {
+				element.blur();
+			}
+			
 		}
 	};
 }
