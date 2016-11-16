@@ -167,8 +167,8 @@
 			} else {
 				element.blur();
 			}
-
 		}
 	};
+//End of clothjs.
 }
 ();
