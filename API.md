@@ -48,67 +48,12 @@
 
 ##### Parameters:
 
-<table class="params">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Type</th>
-
-<th class="last">Description</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td class="name">`parentID`</td>
-
-<td class="type"><span class="param-type">string</span></td>
-
-<td class="description last">The name of the parent html element.</td>
-
-</tr>
-
-<tr>
-
-<td class="name">`elementType`</td>
-
-<td class="type"><span class="param-type">string</span></td>
-
-<td class="description last">The html element type that is appened to parent html element.</td>
-
-</tr>
-
-<tr>
-
-<td class="name">`attrs`</td>
-
-<td class="type"><span class="param-type">object</span></td>
-
-<td class="description last">The attribute object {@see cloth#setAttributes}.</td>
-
-</tr>
-
-<tr>
-
-<td class="name">`prepend`</td>
-
-<td class="type"><span class="param-type">boolean</span></td>
-
-<td class="description last">Optional flag for prepending the html element in front of any other element.</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Name | Type | Description |
+| --- | --- | --- |
+| `parentID` | <span class="param-type">string</span> | The name of the parent html element. |
+| `elementType` | <span class="param-type">string</span> | The html element type that is appened to parent html element. |
+| `attrs` | <span class="param-type">object</span> | The attribute object {@see cloth#setAttributes}. |
+| `prepend` | <span class="param-type">boolean</span> | Optional flag for prepending the html element in front of any other element. |
 
 <dl class="details">
 
@@ -136,47 +81,10 @@
 
 ##### Parameters:
 
-<table class="params">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Type</th>
-
-<th class="last">Description</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td class="name">`element`</td>
-
-<td class="type"><span class="param-type">element</span></td>
-
-<td class="description last">The html element that is being created.</td>
-
-</tr>
-
-<tr>
-
-<td class="name">`attrs`</td>
-
-<td class="type"><span class="param-type">object</span></td>
-
-<td class="description last">The attribute object. This contains any inline parameters. I suggest containing the id parameter.</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Name | Type | Description |
+| --- | --- | --- |
+| `element` | <span class="param-type">element</span> | The html element that is being created. |
+| `attrs` | <span class="param-type">object</span> | The attribute object. This contains any inline parameters. I suggest containing the id parameter. |
 
 <dl class="details">
 
@@ -204,47 +112,10 @@
 
 ##### Parameters:
 
-<table class="params">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Type</th>
-
-<th class="last">Description</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td class="name">`elementID`</td>
-
-<td class="type"><span class="param-type">string</span></td>
-
-<td class="description last">The name of the html element.</td>
-
-</tr>
-
-<tr>
-
-<td class="name">`defocus`</td>
-
-<td class="type"><span class="param-type">boolean</span></td>
-
-<td class="description last">Optional flag to defocus from an html element.</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Name | Type | Description |
+| --- | --- | --- |
+| `elementID` | <span class="param-type">string</span> | The name of the html element. |
+| `defocus` | <span class="param-type">boolean</span> | Optional flag to defocus from an html element. |
 
 <dl class="details">
 
@@ -272,37 +143,9 @@
 
 ##### Parameters:
 
-<table class="params">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Type</th>
-
-<th class="last">Description</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td class="name">`elementID`</td>
-
-<td class="type"><span class="param-type">string</span></td>
-
-<td class="description last">The name of the html element that will be removed.</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Name | Type | Description |
+| --- | --- | --- |
+| `elementID` | <span class="param-type">string</span> | The name of the html element that will be removed. |
 
 <dl class="details">
 
@@ -330,47 +173,10 @@
 
 ##### Parameters:
 
-<table class="params">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Type</th>
-
-<th class="last">Description</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td class="name">`elementID`</td>
-
-<td class="type"><span class="param-type">string</span></td>
-
-<td class="description last">The name of the html element.</td>
-
-</tr>
-
-<tr>
-
-<td class="name">`innerHTML`</td>
-
-<td class="type"><span class="param-type">boolean</span></td>
-
-<td class="description last">Optional flag</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Name | Type | Description |
+| --- | --- | --- |
+| `elementID` | <span class="param-type">string</span> | The name of the html element. |
+| `innerHTML` | <span class="param-type">boolean</span> | Optional flag |
 
 <dl class="details">
 
@@ -410,57 +216,11 @@
 
 ##### Parameters:
 
-<table class="params">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Type</th>
-
-<th class="last">Description</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td class="name">`elementID`</td>
-
-<td class="type"><span class="param-type">string</span></td>
-
-<td class="description last">The name of the html element.</td>
-
-</tr>
-
-<tr>
-
-<td class="name">`elementValue`</td>
-
-<td class="type"><span class="param-type">string</span></td>
-
-<td class="description last">The new value for the html element.</td>
-
-</tr>
-
-<tr>
-
-<td class="name">`innerHTML`</td>
-
-<td class="type"><span class="param-type">boolean</span></td>
-
-<td class="description last">Optional flag for elements that have innerHTML.</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Name | Type | Description |
+| --- | --- | --- |
+| `elementID` | <span class="param-type">string</span> | The name of the html element. |
+| `elementValue` | <span class="param-type">string</span> | The new value for the html element. |
+| `innerHTML` | <span class="param-type">boolean</span> | Optional flag for elements that have innerHTML. |
 
 <dl class="details">
 
@@ -498,6 +258,6 @@
 
 </nav>
 
-<footer>Documentation generated by [JSDoc 3.4.3](https://github.com/jsdoc3/jsdoc) on Tue Nov 15 2016 18:09:02 GMT-0800 (Pacific Standard Time)</footer>
+<footer>Documentation generated by [JSDoc 3.4.3](https://github.com/jsdoc3/jsdoc) on Tue Nov 15 2016 20:13:16 GMT-0800 (Pacific Standard Time)</footer>
 
 <script>prettyPrint();</script>

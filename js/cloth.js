@@ -111,7 +111,7 @@
 	 */
 	cloth.retrieve = function (elementID, innerHTML) {
 		var element = cloth_document.getElementById(elementID);
-		if (element !== undefined || element !== null) {
+		if (element !== undefined && element !== null) {
 			if (!innerHTML) {
 				return element.value;
 			} else {
@@ -169,6 +169,6 @@
 			}
 		}
 	};
-//End of clothjs.
+	//End of clothjs.
 }
 ();
